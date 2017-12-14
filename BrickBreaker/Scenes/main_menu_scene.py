@@ -45,5 +45,3 @@ class MainMenuScene(Scene):
                 if event.key == pygame.K_F4:
                     exit()
 
-                if event.key == pygame.K_F5:
-                    self.get_game().change_scene(GameConstants.GAME_OVER_SCENE)
