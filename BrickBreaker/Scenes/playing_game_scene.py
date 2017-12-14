@@ -105,7 +105,7 @@ class PlayingGameScene(Scene):
                     for ball in self.get_game().get_balls():
                         ball.set_motion(1)
                 if event.key == pygame.K_ESCAPE:
-                    exit()
+                    self.get_game().change_scene(GameConstants.MAIN_MENU_SCENE)
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
