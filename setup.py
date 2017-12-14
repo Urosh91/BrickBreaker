@@ -9,7 +9,7 @@ You can get it by downloading it directly or by typing:
 
 .. code:: bash
 
-    $ pip install BrickBreaker
+    $ pip install BrickBreakerGame
 
 After it is installed you can start it by simply typing in your terminal:
 
@@ -35,7 +35,7 @@ def package_files(directory):
 extra_files = package_files("BrickBreaker/Assets")
 
 
-setup(name="BrickBreaker",
+setup(name="BrickBreakerGame",
       version="0.1",
       description="Brick Breaker game",
       long_description=__doc__,
