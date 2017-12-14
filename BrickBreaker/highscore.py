@@ -1,6 +1,7 @@
 import fileinput
 import hashlib
 import operator
+from pkg_resources import resource_filename
 
 
 class Highscore:
@@ -14,7 +15,7 @@ class Highscore:
     @staticmethod
     def load():
         highscore = []
-        for line in fileinput.input("/home/uros/Projects/BrickBreaker/BrickBreaker/Assets/highscore.dat"):
+        for line in fileinput.input(resource_filename(__name__, "highscore.dat")):
             name, score, md5 = line.split('[::]')
             md5 = md5.replace('\n', '')
 
@@ -30,7 +31,7 @@ class Highscore:
         hash = hashlib.md5((str(name+str(score)+"pygame")).encode("utf-8"))
         self._highscore.append([name, str(score), hash.hexdigest()])
 
-        with open("/home/uros/Projects/BrickBreaker/BrickBreaker/Assets/highscore.dat", "w") as f:
+        with open(resource_filename(__name__, "highscore.dat"), "w") as f:
             for name, score, md5 in self._highscore:
                 f.write(str(name)+"[::]"+str(score)+"[::]"+str(md5)+"\n")
 

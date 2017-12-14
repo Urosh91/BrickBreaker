@@ -21,22 +21,9 @@ After it is installed you can start it by simply typing in your terminal:
 
 from setuptools import setup
 
-import os
-
-
-def package_files(directory):
-    paths = []
-    for (path, directories, filenames) in os.walk(directory):
-        for filename in filenames:
-            paths.append(os.path.join('..', path, filename))
-    return paths
-
-
-extra_files = package_files("BrickBreaker/Assets")
-
 
 setup(name="BrickBreakerGame",
-      version="0.1",
+      version="0.1.3",
       description="Brick Breaker game",
       long_description=__doc__,
       url="https://github.com/Urosh91/BrickBreaker",
@@ -44,7 +31,8 @@ setup(name="BrickBreakerGame",
       author_email="jevremovic.uros91@gmail.com",
       packages=["BrickBreaker", "BrickBreaker.Bricks", "BrickBreaker.Scenes", "BrickBreaker.Shared"],
       install_requires=["pygame"],
-      package_data={"": extra_files},
+      include_package_data=True,
+      # package_data={"": extra_files},
       entry_points={
           "console_scripts": ["brickbreaker=BrickBreaker.brick_breaker:main"],
       },
