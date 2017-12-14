@@ -32,7 +32,6 @@ setup(name="BrickBreakerGame",
       packages=["BrickBreaker", "BrickBreaker.Bricks", "BrickBreaker.Scenes", "BrickBreaker.Shared"],
       install_requires=["pygame"],
       include_package_data=True,
-      # package_data={"": extra_files},
       entry_points={
           "console_scripts": ["brickbreaker=BrickBreaker.brick_breaker:main"],
       },
