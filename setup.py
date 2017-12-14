@@ -9,7 +9,7 @@ You can get it by downloading it directly or by typing:
 
 .. code:: bash
 
-    $ pip install brick-breaker
+    $ pip install BrickBreaker
 
 After it is installed you can start it by simply typing in your terminal:
 
