@@ -83,9 +83,15 @@ class BrickBreaker:
         self._bonus = 1
 
     def double_pad(self):
+        keyboard = self._pad.get_keyboard_status()
+        mouse = self._pad.get_mouse_status()
         self._pad = DoublePad((GameConstants.SCREEN_SIZE[0] / 2,
                               GameConstants.SCREEN_SIZE[1] - GameConstants.DOUBLE_PAD_SIZE[1]),
                               pygame.image.load(GameConstants.DOUBLE_PAD_IMAGE))
+        if keyboard:
+            self._pad.activate_keyboard()
+        if mouse:
+            self._pad.activate_mouse()
 
     def reset_pad(self):
         keyboard = self._pad.get_keyboard_status()
