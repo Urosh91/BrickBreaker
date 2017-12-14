@@ -16,10 +16,9 @@ class MainMenuScene(Scene):
 
         self.clear_text()
         self.add_text("F1 - Start Game", x=600, y=280, size=60)
-        self.add_text("F2 - Highscore", x=600, y=360, size=60)
-        self.add_text("F3 - Controls", x=600, y=440, size=60)
-        self.add_text("F4 - Game Rules", x=600, y=520, size=60)
-        self.add_text("F5 - Quit", x=600, y=600, size=60)
+        self.add_text("F2 - Controls", x=600, y=360, size=60)
+        self.add_text("F3 - Game Rules", x=600, y=440, size=60)
+        self.add_text("F4 - Quit", x=600, y=520, size=60)
 
         super().render()
 
@@ -38,14 +37,13 @@ class MainMenuScene(Scene):
                     self.get_game().change_scene(GameConstants.PLAYING_SCENE)
 
                 if event.key == pygame.K_F2:
-                    self.get_game().change_scene(GameConstants.HIGHSCORE_SCENE)
-
-                if event.key == pygame.K_F3:
                     self.get_game().change_scene(GameConstants.CONTROLS_SCENE)
 
-                if event.key == pygame.K_F4:
+                if event.key == pygame.K_F3:
                     self.get_game().change_scene(GameConstants.GAME_RULES_SCENE)
 
-                if event.key == pygame.K_F5:
+                if event.key == pygame.K_F4:
                     exit()
 
+                if event.key == pygame.K_F5:
+                    self.get_game().change_scene(GameConstants.GAME_OVER_SCENE)

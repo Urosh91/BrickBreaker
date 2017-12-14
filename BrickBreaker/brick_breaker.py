@@ -36,7 +36,6 @@ class BrickBreaker:
 
         self._scenes = (
             PlayingGameScene(self),
-            HighscoreScene(self),
             MainMenuScene(self),
             GameOverScene(self),
             WinScene(self),
@@ -44,7 +43,7 @@ class BrickBreaker:
             GameRulesScene(self),
         )
 
-        self._current_scene = 2
+        self._current_scene = 1
 
         self._sounds = (
             pygame.mixer.Sound(GameConstants.SOUND_FILE_HITTING_A_STANDARD_BRICK),
@@ -89,9 +88,15 @@ class BrickBreaker:
                               pygame.image.load(GameConstants.DOUBLE_PAD_IMAGE))
 
     def reset_pad(self):
+        keyboard = self._pad.get_keyboard_status()
+        mouse = self._pad.get_mouse_status()
         self._pad = Pad((GameConstants.SCREEN_SIZE[0] / 2,
                          GameConstants.SCREEN_SIZE[1] - GameConstants.PAD_SIZE[1]),
                         pygame.image.load(GameConstants.PAD_IMAGE))
+        if keyboard:
+            self._pad.activate_keyboard()
+        if mouse:
+            self._pad.activate_mouse()
 
     def get_pad(self):
         return self._pad
