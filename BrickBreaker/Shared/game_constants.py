@@ -20,7 +20,7 @@ class GameConstants:
     MAIN_MENU_IMAGE = resource_filename(__name__, "main_menu.png")
     DOUBLE_PAD_IMAGE = resource_filename(__name__, "double_pad.png")
 
-    SOUND_FILE_HITTING_A_STANDARD_BRICK = resource_filename(__name__, "ball_hitting_a_wall_or_a_pad.wav")
+    SOUND_FILE_HITTING_A_STANDARD_BRICK = resource_filename(__name__, "hitting_a_standard_brick.wav")
     SOUND_FILE_HITTING_SPEED_UP_BRICK = resource_filename(__name__, "hitting_speed_up_brick.wav")
     SOUND_FILE_HITTING_EXTRA_LIFE_BRICK = resource_filename(__name__, "hitting_extra_life_brick.wav")
     SOUND_FILE_BALL_HITTING_A_WALL_OR_A_PAD = resource_filename(__name__, "ball_hitting_a_wall_or_a_pad.wav")
