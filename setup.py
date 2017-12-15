@@ -23,7 +23,7 @@ from setuptools import setup
 
 
 setup(name="BrickBreakerGame",
-      version="0.1.9",
+      version="0.2",
       description="Brick Breaker game",
       long_description=__doc__,
       url="https://github.com/Urosh91/BrickBreaker",

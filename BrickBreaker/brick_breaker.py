@@ -36,6 +36,7 @@ class BrickBreaker:
 
         self._scenes = (
             PlayingGameScene(self),
+            HighscoreScene(self),
             MainMenuScene(self),
             GameOverScene(self),
             WinScene(self),
@@ -43,7 +44,7 @@ class BrickBreaker:
             GameRulesScene(self),
         )
 
-        self._current_scene = 1
+        self._current_scene = 2
 
         self._sounds = (
             pygame.mixer.Sound(GameConstants.SOUND_FILE_HITTING_A_STANDARD_BRICK),

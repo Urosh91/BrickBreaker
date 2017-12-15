@@ -1,16 +1,15 @@
 import pygame
 
 from BrickBreaker.Scenes.scene import Scene
-from BrickBreaker.Shared import *
 from BrickBreaker import Highscore
+from BrickBreaker.Shared import *
 
 
-class GameOverScene(Scene):
+class HighscoreScene(Scene):
 
     def __init__(self, game):
         super().__init__(game)
 
-        self._player_name = ""
         self._high_score_image = pygame.image.load(GameConstants.HIGHSCORE_IMAGE)
 
     def render(self):
@@ -18,8 +17,19 @@ class GameOverScene(Scene):
         self.get_game().screen.blit(self._high_score_image, (15, 20))
 
         self.clear_text()
-        self.add_text("Please enter your name: ", 300, 200, size=30)
-        self.add_text(self._player_name, 300, 250, size=30)
+
+        highscore = Highscore()
+
+        x = 600
+        y = 100
+        for position, score in enumerate(highscore.get_scores()):
+            self.add_text(f"{position+1}. {score[0]}", x, y, size=45)
+            self.add_text(str(score[1]), x + 200, y, size=45)
+
+            y += 30
+
+        self.add_text("F1 - Start Game", x, y + 120, size=60)
+        self.add_text("F2 - Main Menu", x, y + 240, size=60)
 
         super().render()
 
@@ -29,19 +39,13 @@ class GameOverScene(Scene):
         for event in events:
             if event.type == pygame.QUIT:
                 exit()
-
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
-                    game = self.get_game()
-                    Highscore().add(self._player_name, game.get_score())
-                    game.reset()
-                    self._player_name = ""
-                    game.change_scene(GameConstants.HIGHSCORE_SCENE)
-                elif 122 >= event.key >= 65:
-                    self._player_name += chr(event.key)
-                elif event.key == pygame.K_BACKSPACE:
-                    self._player_name = self._player_name[:-1]
-
                 if event.key == pygame.K_F1:
                     self.get_game().reset()
                     self.get_game().change_scene(GameConstants.PLAYING_SCENE)
+
+                if event.key == pygame.K_F2:
+                    self.get_game().change_scene(GameConstants.MAIN_MENU_SCENE)
+
+                if event.key == pygame.K_ESCAPE:
+                    self.get_game().change_scene(GameConstants.MAIN_MENU_SCENE)
