@@ -40,7 +40,7 @@ class Level:
         x, y = 0, 0
 
         max_bricks = int(GameConstants.SCREEN_SIZE[0] / GameConstants.BRICK_SIZE[0])
-        rows = self._current_level
+        rows = self._current_level + 1
 
         for row in range(0, rows):
             amount_of_life_bricks = 0
