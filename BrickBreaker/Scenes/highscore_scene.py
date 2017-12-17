@@ -28,8 +28,8 @@ class HighscoreScene(Scene):
 
             y += 30
 
-        self.add_text("F1 - Start Game", x, y + 120, size=60)
-        self.add_text("F2 - Main Menu", x, y + 240, size=60)
+        self.add_text("Q - Start Game", x, y + 120, size=60)
+        self.add_text("W - Main Menu", x, y + 240, size=60)
 
         super().render()
 
@@ -40,11 +40,11 @@ class HighscoreScene(Scene):
             if event.type == pygame.QUIT:
                 exit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_F1:
+                if event.key == pygame.K_q:
                     self.get_game().reset()
                     self.get_game().change_scene(GameConstants.PLAYING_SCENE)
 
-                if event.key == pygame.K_F2:
+                if event.key == pygame.K_w:
                     self.get_game().change_scene(GameConstants.MAIN_MENU_SCENE)
 
                 if event.key == pygame.K_ESCAPE:

@@ -19,8 +19,8 @@ class WinScene(Scene):
         self.clear_text()
         self.add_text("YOU WIN!", x=600, y=200, size=100, color=[242, 111, 0], background=[120, 0, 120],
                       font_type="Ani", italic=True, bold=True)
-        self.add_text("F1 - Start New Game", x=300, y=500, background=[120, 0, 120], size=30)
-        self.add_text("F2 - Quit", x=1100, y=500, background=[120, 0, 120], size=30)
+        self.add_text("Q - Start New Game", x=300, y=500, background=[120, 0, 120], size=30)
+        self.add_text("W - Quit", x=1100, y=500, background=[120, 0, 120], size=30)
         self.add_text("Please enter your name: ", x=700, y=700, background=[120, 0, 120], size=30)
         self.add_text(self._player_name, x=700, y=800, background=[120, 0, 120], size=30)
 
@@ -37,7 +37,7 @@ class WinScene(Scene):
                 if event.key == pygame.K_ESCAPE:
                     exit()
 
-                if event.key == pygame.K_F1:
+                if event.key == pygame.K_q:
                     self.get_game().reset()
                     self.get_game().change_scene(GameConstants.PLAYING_SCENE)
 
@@ -50,5 +50,5 @@ class WinScene(Scene):
                     elif 122 >= event.key >= 65:
                         self._player_name += chr(event.key)
 
-                if event.key == pygame.K_F2:
+                if event.key == pygame.K_w:
                     exit()

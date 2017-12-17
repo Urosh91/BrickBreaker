@@ -30,7 +30,7 @@ class GameRulesScene(Scene):
         self.add_text("bricks, with each next level increasing the amount of rows, and thus "
                       "the difficulty. There is total of eight levels.", x=100, y=550, size=30)
         # self.add_text("the difficulty. There is total of eight levels.", x=100, y=550, size=30 )
-        self.add_text("F1 - Back to Main Menu", x=300, y=800, size=60)
+        self.add_text("Q - Back to Main Menu", x=300, y=800, size=60)
 
         super().render()
 
@@ -45,5 +45,5 @@ class GameRulesScene(Scene):
                 if event.key == pygame.K_ESCAPE:
                     self.get_game().change_scene(GameConstants.MAIN_MENU_SCENE)
 
-                if event.key == pygame.K_F1:
+                if event.key == pygame.K_q:
                     self.get_game().change_scene(GameConstants.MAIN_MENU_SCENE)

@@ -2,7 +2,6 @@ import fileinput
 import hashlib
 import operator
 import getpass
-import os
 import platform
 
 
@@ -20,10 +19,10 @@ class Highscore:
         highscore = []
         if platform.system() == "Linux":
             try:
-                f = open(f"/home/{user}/highscore.dat", "r")
+                f = open(f"/var/tmp/highscore.dat", "r")
             except IOError:
-                f = open(f"/home/{user}/highscore.dat", "w")
-            for line in fileinput.input(f"/home/{user}/highscore.dat"):
+                f = open(f"/var/tmp/highscore.dat", "w")
+            for line in fileinput.input(f"/var/tmp/highscore.dat"):
                 name, score, md5 = line.split('[::]')
                 md5 = md5.replace('\n', '')
 
@@ -37,10 +36,10 @@ class Highscore:
 
         elif platform.system() == "Windows":
             try:
-                f = open(f"{os.path.abspath(os.sep)[:-1]}highscore.dat", "r")
+                f = open(fr"C\Users\{user}\AppData\Local\Temp\highscore.dat", "r")
             except IOError:
-                f = open(f"{os.path.abspath(os.sep)[:-1]}highscore.dat", "w")
-            for line in fileinput.input(f"{os.path.abspath(os.sep)[:-1]}highscore.dat"):
+                f = open(fr"C\Users\{user}\AppData\Local\Temp\highscore.dat", "w")
+            for line in fileinput.input(fr"C\Users\{user}\AppData\Local\Temp\highscore.dat"):
                 name, score, md5 = line.split('[::]')
                 md5 = md5.replace('\n', '')
 
@@ -54,10 +53,10 @@ class Highscore:
 
         elif platform.system() == "Darwin":
             try:
-                f = open(f"/Users/{user}/highscore.dat", "r")
+                f = open(f"/var/tmp/highscore.dat", "r")
             except IOError:
-                f = open(f"/Users/{user}/highscore.dat", "w")
-            for line in fileinput.input(f"/Users/{user}/highscore.dat"):
+                f = open(f"/var/tmp/highscore.dat", "w")
+            for line in fileinput.input(f"/var/tmp/highscore.dat"):
                 name, score, md5 = line.split('[::]')
                 md5 = md5.replace('\n', '')
 
@@ -77,17 +76,17 @@ class Highscore:
         self._highscore.append([name, str(score), hash.hexdigest()])
 
         if platform.system() == "Linux":
-            with open(f"/home/{user}/highscore.dat", "w") as f:
+            with open(f"/var/tmp/highscore.dat", "w") as f:
                 for name, score, md5 in self._highscore:
                     f.write(str(name)+"[::]"+str(score)+"[::]"+str(md5)+"\n")
 
         elif platform.system() == "Windows":
-            with open(f"{os.path.abspath(os.sep)[:-1]}highscore.dat", "w") as f:
+            with open(fr"C\Users\{user}\AppData\Local\Temp\highscore.dat", "w") as f:
                 for name, score, md5 in self._highscore:
                     f.write(str(name) + "[::]" + str(score) + "[::]" + str(md5) + "\n")
 
         elif platform.system() == "Darwin":
-            with open(f"/Users/{user}/highscore.dat", "w") as f:
+            with open(f"/var/tmp/highscore.dat", "w") as f:
                 for name, score, md5 in self._highscore:
                     f.write(str(name) + "[::]" + str(score) + "[::]" + str(md5) + "\n")
 

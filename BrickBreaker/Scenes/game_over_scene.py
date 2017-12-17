@@ -41,7 +41,3 @@ class GameOverScene(Scene):
                     self._player_name += chr(event.key)
                 elif event.key == pygame.K_BACKSPACE:
                     self._player_name = self._player_name[:-1]
-
-                if event.key == pygame.K_F1:
-                    self.get_game().reset()
-                    self.get_game().change_scene(GameConstants.PLAYING_SCENE)
