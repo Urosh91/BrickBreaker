@@ -150,5 +150,9 @@ class BrickBreaker:
                         pygame.image.load(GameConstants.PAD_IMAGE))
 
 
+def main():
+    BrickBreaker().start()
+
+
 if __name__ == '__main__':
     BrickBreaker().start()
