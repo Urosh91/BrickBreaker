@@ -23,7 +23,7 @@ from setuptools import setup
 
 
 setup(name="BrickBreakerGame",
-      version="0.2.5",
+      version="0.2.6",
       description="Brick Breaker game",
       long_description=__doc__,
       url="https://github.com/Urosh91/BrickBreaker",
@@ -33,7 +33,7 @@ setup(name="BrickBreakerGame",
       install_requires=["pygame"],
       include_package_data=True,
       entry_points={
-          "console_scripts": ["brickbreaker=BrickBreaker.brick_breaker"],
+          "console_scripts": ["brickbreaker=BrickBreaker.brick_breaker:main"],
       },
       )
 
